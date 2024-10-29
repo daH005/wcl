@@ -1,3 +1,4 @@
+### About the project
 This simple project allows you to use linux-like commands in `cmd.exe` on Windows.
 I made:
 - ls
@@ -9,4 +10,7 @@ I made:
 - mv
 - cp
 - clear
-- 
+
+### Installation
+To install on your system you just have to run `py _setup.py` with administrator rights.
+You can also use `_setup.exe` from the release.
