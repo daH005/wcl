@@ -12,5 +12,5 @@ I made:
 - clear
 
 ### Installation
-To install on your system you just have to run `py _setup.py` with administrator rights.
-You can also use `_setup.exe` from the release.
+To install on your system you just have to run `py _build.py` and `py _setup.py`.
+You can also use `_setup.exe` from the release with administrator rights.
