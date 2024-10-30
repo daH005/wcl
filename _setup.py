@@ -1,21 +1,14 @@
 from subprocess import run
 from os import mkdir, listdir
+import sys
 from shutil import copy
 from pathlib import Path
 from traceback import print_exc
 import ctypes
 
 
-def is_admin() -> bool:
-    try:
-        return ctypes.windll.shell32.IsUserAnAdmin()
-    except Exception as _e:
-        print(_e)
-        return False
-
-
 def main() -> str:
-    if not is_admin():
+    if not is_admin() and is_running_as_exe():
         return 'The script must be run with administrator rights.'
 
     commands_dir = '.\\bin\\'
@@ -40,6 +33,18 @@ def main() -> str:
     run(command, shell=True)
 
     return 'Installation completed successfully. Enjoy!'
+
+
+def is_admin() -> bool:
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except Exception as _e:
+        print(_e)
+        return False
+
+
+def is_running_as_exe() -> bool:
+    return getattr(sys, 'frozen', False)
 
 
 if __name__ == '__main__':
