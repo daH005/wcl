@@ -4,13 +4,13 @@ from shutil import rmtree
 from sys import argv
 
 
-def main() -> str:
+def main() -> None:
     if len(argv) < 2:
-        return 'Enter at least one filename or folder.'
+        return print('Enter at least one filename or folder.')
 
     if argv[1] == '-r':
         if len(argv) == 2:
-            return 'Enter at least one filename or folder.'
+            return print('Enter at least one filename or folder.')
         r = True
         start_index = 2
     else:
@@ -24,11 +24,9 @@ def main() -> str:
         else:
             remove(filename)
 
-    return 'Operation completed successfully.'
-
 
 if __name__ == '__main__':
     try:
-        print(main())
+        main()
     except Exception as e:
         print(e)

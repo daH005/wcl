@@ -1,16 +1,16 @@
 from sys import argv
 
 
-def main() -> str:
+def main() -> None:
     if len(argv) < 2:
-        return 'Enter filename.'
+        return print('Enter filename.')
 
     with open(argv[-1], 'r', encoding='utf-8') as f:
-        return f.read()
+        return print(f.read())
 
 
 if __name__ == '__main__':
     try:
-        print(main())
+        main()
     except Exception as e:
         print(e)

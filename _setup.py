@@ -7,9 +7,9 @@ from traceback import print_exc
 import ctypes
 
 
-def main() -> str:
+def main() -> None:
     if not is_admin() and is_running_as_exe():
-        return 'The script must be run with administrator rights.'
+        return print('The script must be run with administrator rights.')
 
     commands_dir = '.\\bin\\'
     commands_filenames = listdir(commands_dir)
@@ -32,7 +32,7 @@ def main() -> str:
     command = f'setx PATH "%PATH%;{commands_global_dir_abs_path}"'
     run(command, shell=True)
 
-    return 'Installation completed successfully. Enjoy!'
+    print('Installation completed successfully. Enjoy!')
 
 
 def is_admin() -> bool:
@@ -49,7 +49,7 @@ def is_running_as_exe() -> bool:
 
 if __name__ == '__main__':
     try:
-        print(main())
+        main()
     except Exception as e:
         print(e)
         print_exc()

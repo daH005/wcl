@@ -1,12 +1,12 @@
 from os import getcwd
 
 
-def main() -> str:
-    return getcwd()
+def main() -> None:
+    print(getcwd())
 
 
 if __name__ == '__main__':
     try:
-        print(main())
+        main()
     except Exception as e:
         print(e)

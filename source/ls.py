@@ -3,7 +3,7 @@ from os import listdir
 from colorama import init, Fore
 
 
-def main() -> str:
+def main() -> None:
     init(autoreset=True)
 
     res = ''
@@ -16,12 +16,12 @@ def main() -> str:
 
     res = res.rstrip()
     if not res:
-        return 'Empty folder.'
-    return res
+        return print('Empty folder.')
+    print(res)
 
 
 if __name__ == '__main__':
     try:
-        print(main())
+        main()
     except Exception as e:
         print(e)

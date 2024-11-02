@@ -1,19 +1,17 @@
 from sys import argv
 
 
-def main() -> str:
+def main() -> None:
     if len(argv) < 2:
-        return 'Enter at least one filename.'
+        return print('Enter at least one filename.')
 
     for filename in argv[1:]:
         with open(filename, 'w', encoding='utf-8') as f:
             pass
 
-    return 'Operation completed successfully.'
-
 
 if __name__ == '__main__':
     try:
-        print(main())
+        main()
     except Exception as e:
         print(e)
