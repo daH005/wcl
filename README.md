@@ -1,5 +1,5 @@
 ## About the project
-This simple project allows you to use linux-like commands in `cmd.exe` on Windows.
+This simple project on Python allows you to use linux-like commands in `cmd.exe` on Windows.
 I made:
 ```sh
 ls
@@ -14,4 +14,4 @@ clear
 ```
 
 ## Installation
-To install on your system you just have to run `py _setup.py`.
+To install on your system you just have to run `py _setup.py` with administrator rights.

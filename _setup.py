@@ -1,6 +1,5 @@
 from subprocess import run
 from os import mkdir, listdir
-import sys
 from shutil import copy
 from pathlib import Path
 from traceback import print_exc
@@ -8,10 +7,10 @@ import ctypes
 
 
 def main() -> None:
-    if not is_admin() and is_running_as_exe():
+    if not _is_admin():
         return print('The script must be run with administrator rights.')
 
-    commands_dir = '.\\bin\\'
+    commands_dir = '.\\source\\'
     commands_filenames = listdir(commands_dir)
 
     commands_global_dir = '\\.wcl'
@@ -24,10 +23,15 @@ def main() -> None:
         pass
 
     for filename in commands_filenames:
-        filename = commands_dir + filename
-        if '.exe' not in filename:
+        if '.py' not in filename:
             continue
-        copy(filename, commands_global_dir_abs_path)
+
+        py_filename = commands_dir + filename
+        copy(py_filename, commands_global_dir_abs_path)
+
+        cmd_filename = filename.replace('.py', '.cmd')
+        with open(commands_global_dir_abs_path + '\\' + cmd_filename, 'w', encoding='utf-8') as f:
+            f.write(f'@echo off\npy %~dp0{filename} %*')
 
     command = f'setx PATH "%PATH%;{commands_global_dir_abs_path}"'
     run(command, shell=True)
@@ -35,16 +39,12 @@ def main() -> None:
     print('Installation completed successfully. Enjoy!')
 
 
-def is_admin() -> bool:
+def _is_admin() -> bool:
     try:
         return ctypes.windll.shell32.IsUserAnAdmin()
     except Exception as _e:
         print(_e)
         return False
-
-
-def is_running_as_exe() -> bool:
-    return getattr(sys, 'frozen', False)
 
 
 if __name__ == '__main__':
