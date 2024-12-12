@@ -17,4 +17,5 @@ clear
 https://github.com/user-attachments/assets/141622fb-358e-4a4e-b35b-92fee98212b9
 
 ## Installation
-To install on your system you just have to run `py _setup.py` with administrator rights.
+1. Run `pip install -r requirements.txt`
+2. Run `py _setup.py` with administrator rights
