@@ -17,4 +17,6 @@ clear
 https://github.com/user-attachments/assets/141622fb-358e-4a4e-b35b-92fee98212b9
 
 ## Installation
-Just run `py _setup.py` (The OS may require the administrative rights)
+Just run `py _setup.py` (The OS may require the administrative rights).
+
+This will create the folder `C:\Users\<you>\.wcl`, containing the `.py` + `.cmd` files, and will add a reference to this folder in the `PATH` environment variable.
