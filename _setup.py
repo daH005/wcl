@@ -3,7 +3,6 @@ from os import mkdir, listdir
 from shutil import copy
 from pathlib import Path
 from traceback import print_exc
-import ctypes
 
 
 def main() -> None:
