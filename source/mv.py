@@ -4,7 +4,7 @@ from sys import argv
 
 def main() -> None:
     if len(argv) < 3:
-        return print('Enter filename to move and destination.')
+        return print('Enter the filename to move and the destination.')
 
     move(argv[1], argv[2])
 

@@ -7,9 +7,6 @@ import ctypes
 
 
 def main() -> None:
-    if not _is_admin():
-        return print('The script must be run with administrator rights.')
-
     commands_dir = '.\\source\\'
     commands_filenames = listdir(commands_dir)
 
@@ -36,15 +33,7 @@ def main() -> None:
     command = f'setx PATH "%PATH%;{commands_global_dir_abs_path}"'
     run(command, shell=True)
 
-    print('Installation completed successfully. Enjoy!')
-
-
-def _is_admin() -> bool:
-    try:
-        return ctypes.windll.shell32.IsUserAnAdmin()
-    except Exception as _e:
-        print(_e)
-        return False
+    print('The installation has been completed successfully. Enjoy!')
 
 
 if __name__ == '__main__':

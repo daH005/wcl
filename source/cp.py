@@ -4,7 +4,7 @@ from sys import argv
 
 def main() -> None:
     if len(argv) < 3:
-        return print('Enter filename to copy and destination.')
+        return print('Enter the filename to copy and the destination.')
 
     copy(argv[1], argv[2])
 
